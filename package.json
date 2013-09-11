@@ -1,0 +1,15 @@
+{
+  "name": "tonic-hbs",
+  "version": "0.0.1",
+  "description": "handlebars job for tonic.js",
+  "main": "tonic-hbs.js",
+  "dependencies": {
+    "handlebars": "~1.0.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Rudick <tmrudick@gmail.com>",
+  "license": "MIT"
+}
