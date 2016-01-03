@@ -1,8 +1,8 @@
 {
   "name": "tonic-hbs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "handlebars job for tonic.js",
-  "main": "tonic-hbs.js",
+  "main": "module.js",
   "dependencies": {
     "handlebars": "~1.0.12"
   },

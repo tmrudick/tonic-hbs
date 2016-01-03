@@ -29,7 +29,7 @@ job(function(done, data) {
             cache[this.parent] = data;
         }
 
-        this.templates.forEach(function(template) {
+        templates.forEach(function(template) {
             var output = template.compiled(cache);
             fs.writeFileSync(template.filename, output, 'utf-8');
         });
@@ -40,4 +40,3 @@ job(function(done, data) {
 
 // Export all of the jobs and attach the handlebars object
 module.exports = {};
-module.exports.Handlebars = Handlebars;
