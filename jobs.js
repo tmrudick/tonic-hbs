@@ -1,10 +1,12 @@
 var Handlebars = require('handlebars'),
+    path = require('path'),
     fs = require('fs');
 
 var templates = [],
     cache = {};
 
-job('hbs', function(done) {
+// Load and compile any templates defined in the config
+job(function(done) {
     if (this.config.handlebars && this.config.handlebars.templates) {
         this.config.handlebars.templates.forEach(function(template) {
             var template_data = fs.readFileSync(template.template, 'utf-8');
@@ -19,6 +21,15 @@ job('hbs', function(done) {
     done();
 }).once();
 
+// Allow for registering any helpers
+job(function(done) {
+    if (this.config.handlebars && this.config.handlebars.helpers) {
+        require(path.join(process.cwd(), this.config.handlebars.helpers))(Handlebars);
+    }
+    done();
+}).once();
+
+// Create all templates when any named job finishes
 job(function(done, data) {
     if (templates) {
         if (!cache) {
@@ -37,6 +48,3 @@ job(function(done, data) {
 
     done();
 }).after('*');
-
-// Export all of the jobs and attach the handlebars object
-module.exports = {};

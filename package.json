@@ -4,7 +4,7 @@
   "description": "handlebars job for tonic.js",
   "main": "module.js",
   "dependencies": {
-    "handlebars": "~1.0.12"
+    "handlebars": "^4.0.5"
   },
   "devDependencies": {},
   "scripts": {
